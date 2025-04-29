@@ -1,21 +1,19 @@
 return {
   "numToStr/Comment.nvim",
-  event = "BufRead",  -- Load when a buffer is read
+  event = "BufRead",
   config = function()
-    require('Comment').setup({
-      toggler = {
-        line = 'gcc',  -- Toggle Comment on a Line
-        block = 'gbc', -- Toggle Comment on a Block
-      },
-      opleader = {
-        line = 'gc',   -- Toggle Comment on select Line
-        block = 'gb',  -- Toggle Comment on select Block
-      },
+    local comment = require("Comment")
+
+    comment.setup({
       mappings = {
-        basic = true,
-        extra = true,
+        basic = false,
+        extra = false,
       },
     })
+
+ --Toggle Comment mapped to <leader>/
+    vim.keymap.set("x", "<leader>/", function()
+      require("Comment.api").toggle.linewise(vim.fn.visualmode())
+    end, { noremap = true, silent = true, desc = "Toggle comment in visual mode" })
   end,
 }
-
