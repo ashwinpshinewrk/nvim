@@ -26,7 +26,7 @@ A simple Neovim setup powered by [💤 lazy.nvim](https://github.com/folke/lazy.
 | fzf (optional CLI) | `>= 0.28` |
 | Node (optional for LSP/TS) | `>= 16` |
 
-Install dependencies via:
+Install dependencies via :
 
 ```bash
 # Ubuntu
