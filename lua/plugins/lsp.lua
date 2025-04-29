@@ -16,6 +16,26 @@ return {
 
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    vim.diagnostic.config({
+      virtual_text = false, 
+      signs = true,         
+      underline = true,     
+      update_in_insert = false,
+      severity_sort = true,
+      float = {
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      },
+    })
+
+    vim.o.updatetime = 250
+    vim.cmd([[
+      autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focus = false })
+    ]])
+
+
 
     local servers = { "lua_ls", "ts_ls", "pyright", "zls","rust_analyzer","clangd" }
 
@@ -26,4 +46,3 @@ return {
     end
   end,
 }
-
