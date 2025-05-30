@@ -40,8 +40,6 @@ return {
         { name = "path" },
       }),
     })
-
-    -- Optional: autocomplete for command mode
   end,
 }
 

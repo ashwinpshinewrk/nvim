@@ -10,7 +10,7 @@ return {
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd" }, -- Add more if needed
+      ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "astro" }, -- Add more if needed
       automatic_installation = true,
     })
 
@@ -37,7 +37,7 @@ return {
 
 
 
-    local servers = { "lua_ls", "ts_ls", "pyright", "zls","rust_analyzer","clangd" }
+    local servers = { "lua_ls", "ts_ls", "pyright", "zls","rust_analyzer","clangd","astro" }
 
     for _, server in ipairs(servers) do
       lspconfig[server].setup({

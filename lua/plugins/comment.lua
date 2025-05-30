@@ -1,19 +1,13 @@
+-- Add comment with the command `gcc` and `gc`+ a letter for specific. like w for word etc.
+
 return {
-  "numToStr/Comment.nvim",
-  event = "BufRead",
+  "terrortylor/nvim-comment",
+  lazy = false,
   config = function()
-    local comment = require("Comment")
-
-    comment.setup({
-      mappings = {
-        basic = false,
-        extra = false,
-      },
+    require("nvim_comment").setup({
+      comment_empty = false,
+      create_mappings = true,
     })
-
- --Toggle Comment mapped to <leader>/
-    vim.keymap.set("x", "<leader>/", function()
-      require("Comment.api").toggle.linewise(vim.fn.visualmode())
-    end, { noremap = true, silent = true, desc = "Toggle comment in visual mode" })
   end,
 }
+
