@@ -18,9 +18,6 @@ return {
 
     -- Add keybindings here
     wk.add({
-      -- NvimTree
-      { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "File Explorer" },
-
       -- fzf.lua
       { "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find Files" },
       { "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Live Grep" },
