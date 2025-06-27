@@ -10,7 +10,7 @@ return {
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "astro", "tailwindcss"}, -- Add more if needed
+      ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "svelte", "tailwindcss"}, -- Add more if needed
       automatic_installation = true,
     })
 
@@ -37,12 +37,26 @@ return {
 
 
 
-    local servers = { "lua_ls", "ts_ls", "pyright", "zls","rust_analyzer","clangd","astro" , "tailwindcss" }
+    local servers = { "lua_ls", "ts_ls", "pyright", "zls","rust_analyzer","clangd",  }
 
     for _, server in ipairs(servers) do
       lspconfig[server].setup({
         capabilities = capabilities,
       })
     end
-  end,
+lspconfig.svelte.setup({
+
+        capabilities = capabilities,
+        filetypes = {"svelte"},
+        root_dir = require("lspconfig").util.root_pattern("package.json","svelte.config.js", ".git")
+    })
+ 
+
+    lspconfig.tailwindcss.setup({
+    capabilities = capabilities,
+        filetypes = {"html","css","javascript", "typescript", "svelte"},
+        root_dir = require("lspconfig").util.root_pattern("tailwind.config.js", "package.json")
+    })
+
+    end
 }
