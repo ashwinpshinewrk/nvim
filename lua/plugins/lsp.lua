@@ -43,13 +43,13 @@ return {
 
             capabilities = capabilities,
             filetypes = { "svelte" },
-            root_dir = require("vim.lsp.config").util.root_pattern("package.json", "svelte.config.js", ".git")
+            root_dir = require("lspconfig").util.root_pattern("package.json", "svelte.config.js", ".git")
         })
 
         vim.lsp.config('tailwindcss', {
             capabilities = capabilities,
             filetypes = { "html", "css", "javascript", "typescript", "svelte" },
-            root_dir = require("vim.lsp.config").util.root_pattern("tailwind.config.js", "package.json")
+            root_dir = require("lspconfig").util.root_pattern("tailwind.config.js", "package.json")
         })
     end
 }
