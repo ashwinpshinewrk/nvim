@@ -15,6 +15,17 @@ return {
         width = 0.8,
         preview = { layout = "vertical" },
       },
+        files = {
+        file_ignore_patterns = {
+            "node_modules",
+                    "dist",
+                    ".git",
+                    "build",
+                    "package-locck.json",
+                    ".zig-cache",
+                    "zig-out"
+                },
+    },
     })
   end,
 }

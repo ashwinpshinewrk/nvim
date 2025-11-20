@@ -1,6 +1,9 @@
 -- lsp.lua
 return {
     "neovim/nvim-lspconfig",
+    keys = {
+        {"<leader>e", "<cmd>Explore<cr>",desc="Newtr"}
+    },
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "williamboman/mason.nvim",
@@ -15,6 +18,12 @@ return {
         })
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local opts = {noremap = true, silent = true}
+
+        vim.keymap.set("n","gd",vim.lsp.buf.definition,opts)
+        vim.keymap.set("n","gD",vim.lsp.buf.declaration,opts)
+        vim.keymap.set("n","gi",vim.lsp.buf.implementation,opts)
+        vim.keymap.set("n","gr",vim.lsp.buf.references,opts)
         vim.diagnostic.config({
             virtual_text = false,
             signs = true,
