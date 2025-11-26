@@ -1,9 +1,6 @@
 -- lsp.lua
 return {
     "neovim/nvim-lspconfig",
-    keys = {
-        {"<leader>e", "<cmd>Explore<cr>",desc="Newtr"}
-    },
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "williamboman/mason.nvim",

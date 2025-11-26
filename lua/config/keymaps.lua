@@ -1,4 +1,3 @@
-vim.keymap.set("n",'<Space>e',':Explore<CR>',{desc = ":Explore"})
 vim.keymap.set("n", '<A-1>',':BufferGoto 1<CR>')
 vim.keymap.set("n", '<A-2>',':BufferGoto 2<CR>')
 vim.keymap.set("n", '<A-3>',':BufferGoto 3<CR>')

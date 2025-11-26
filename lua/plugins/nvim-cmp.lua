@@ -15,7 +15,6 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     require("luasnip.loaders.from_vscode").lazy_load()
-    vim.keymap.set("n", "-", "<cmd>Explore<CR>", {desc="Open Netrw"})
     cmp.setup({
             completion = {
                 keyword_length = 1,
