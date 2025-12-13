@@ -10,17 +10,17 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "svelte", "tailwindcss", "gopls","jdtls" }, -- Add more if needed
+            ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "svelte", "tailwindcss", "gopls", "jdtls" }, -- Add more if needed
             automatic_installation = true,
         })
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
-        local opts = {noremap = true, silent = true}
+        local opts = { noremap = true, silent = true }
 
-        vim.keymap.set("n","gd",vim.lsp.buf.definition,opts)
-        vim.keymap.set("n","gD",vim.lsp.buf.declaration,opts)
-        vim.keymap.set("n","gi",vim.lsp.buf.implementation,opts)
-        vim.keymap.set("n","gr",vim.lsp.buf.references,opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
         vim.diagnostic.config({
             virtual_text = false,
             signs = true,
@@ -34,24 +34,34 @@ return {
                 prefix = "",
             },
             signs = {
-            text = {
-                [vim.diagnostic.severity.ERROR] = "E",
-                [vim.diagnostic.severity.WARN] = "W",
-                [vim.diagnostic.severity.HINT] = "H",
-                [vim.diagnostic.severity.INFO] = "INFO",
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "E",
+                    [vim.diagnostic.severity.WARN] = "W",
+                    [vim.diagnostic.severity.HINT] = "H",
+                    [vim.diagnostic.severity.INFO] = "INFO",
                 },
-linehl = {[vim.diagnostic.severity.ERROR] = 'ErrorMsg',},
-numhl = {[vim.diagnostic.severity.WARN] = 'WarningMsg',},
-},
+                linehl = { [vim.diagnostic.severity.ERROR] = 'ErrorMsg', },
+                numhl = { [vim.diagnostic.severity.WARN] = 'WarningMsg', },
+            },
         })
 
         vim.o.updatetime = 250
-       vim.cmd([[
+        vim.cmd([[
      autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focus = false })
    ]])
 
         vim.lsp.config('*', {
             capabilities = capabilities,
+        })
+
+        vim.lsp.config('lua_ls', {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                }
+            }
         })
 
         -- Custom targets
@@ -69,7 +79,7 @@ numhl = {[vim.diagnostic.severity.WARN] = 'WarningMsg',},
         })
         vim.lsp.config('zls', {
             capabilities = capabilities,
-            filetypes = {"zig"}
+            filetypes = { "zig" }
         })
     end
 }
