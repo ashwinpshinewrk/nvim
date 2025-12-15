@@ -9,17 +9,15 @@ return {
         conform.setup({
             formatters_by_ft = {
                     rust = { "rustfmt", lsp_format = "fallback" },
-                astro = { "prettier", lsp_format = "fallback"},
             }
         })
 
         vim.keymap.set({"n","v"}, "<leader>m", function ()
             conform.format({
-                lsp_fallback = true,
+                lsp_format = "fallback",
                 async = false,
                 timeout_ms = 500
             })
-            
         end, {desc = "Format file or range (visual mode)"})
     end
 }

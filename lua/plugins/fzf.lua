@@ -6,7 +6,6 @@ return {
     { "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find Files" },
     { "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Live Grep" },
     { "<leader>fb", "<cmd>FzfLua buffers<CR>", desc = "Find Buffers" },
-    { "<leader>fh", "<cmd>FzfLua help_tags<CR>", desc = "Help Tags" },
   },
   config = function()
     require("fzf-lua").setup({
@@ -21,7 +20,7 @@ return {
                     "dist",
                     ".git",
                     "build",
-                    "package-locck.json",
+                    "package-lock.json",
                     ".zig-cache",
                     "zig-out"
                 },

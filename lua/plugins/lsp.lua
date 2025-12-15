@@ -5,16 +5,16 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig",
-        "hrsh7th/cmp-nvim-lsp", -- needed for autocomplete
+        "saghen/blink.cmp", -- needed for autocomplete
     },
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "svelte", "tailwindcss", "gopls", "jdtls" }, -- Add more if needed
+            ensure_installed = { "lua_ls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "svelte", "tailwindcss", "gopls" }, -- Add more if needed
             automatic_installation = true,
         })
 
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
         local opts = { noremap = true, silent = true }
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)

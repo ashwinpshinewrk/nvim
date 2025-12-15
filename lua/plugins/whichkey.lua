@@ -22,7 +22,6 @@ return {
       { "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find Files" },
       { "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Live Grep" },
       { "<leader>fb", "<cmd>FzfLua buffers<CR>", desc = "Buffers" },
-      { "<leader>fh", "<cmd>FzfLua help_tags<CR>", desc = "Help Tags" },
 
       -- lspconfig & mason
       { "<leader>li", "<cmd>LspInfo<CR>", desc = "LSP Info" },
@@ -32,6 +31,14 @@ return {
       { "<leader>ui", "<cmd>Lazy install<CR>", desc = "Install Plugins" },
       { "<leader>uc", "<cmd>Lazy check<CR>", desc = "Check Plugins" },
       { "<leader>uu", "<cmd>Lazy update<CR>", desc = "Update Plugins" },
+    --Code Actions
+    {"<leader>c",group="Code"},
+            {
+                "<leader>ca",
+                function() vim.lsp.buf.code_action() end,
+                desc = "Code Action",
+                mode = {"n","v"}
+            },
 
       -- Nested mappings (Normal and Visual modes)
       { mode = { "n", "v" },
