@@ -23,7 +23,6 @@ return {
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
         vim.diagnostic.config({
             virtual_text = false,
-            signs = true,
             underline = true,
             update_in_insert = false,
             severity_sort = true,
@@ -38,7 +37,7 @@ return {
                     [vim.diagnostic.severity.ERROR] = "E",
                     [vim.diagnostic.severity.WARN] = "W",
                     [vim.diagnostic.severity.HINT] = "H",
-                    [vim.diagnostic.severity.INFO] = "INFO",
+                    [vim.diagnostic.severity.INFO] = "",
                 },
                 linehl = { [vim.diagnostic.severity.ERROR] = 'ErrorMsg', },
                 numhl = { [vim.diagnostic.severity.WARN] = 'WarningMsg', },
