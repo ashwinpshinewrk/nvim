@@ -10,5 +10,5 @@ vim.opt.expandtab = true
 
 vim.o.termguicolors = true
 require("config.lazy")
-require("config.mapping")
+require("config.keymaps")
 vim.cmd[[colorscheme tokyonight-night]]
